@@ -16,7 +16,7 @@ public class QuickFindUF {
     // Return true if p and q are in the same component
     public boolean connected(int p, int q) {
         // YOUR CODE HERE
-        return false; // placeholder
+        return id[p]==id[q];
     }
 
     // TODO: Implement union()
@@ -24,6 +24,13 @@ public class QuickFindUF {
     // HINT: Save id[p] to a variable BEFORE the loop — why does this matter?
     public void union(int p, int q) {
         // YOUR CODE HERE
+        int ps = id[p];
+        for(int i = 0; i<id.length;i++) {
+            if(id[i]==ps) {
+                id[i] = id[q];
+            }
+        }
+
     }
 
     public static void main(String[] args) {
