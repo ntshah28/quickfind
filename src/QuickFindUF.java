@@ -56,12 +56,23 @@ public class QuickFindUF {
 
         // Test 3: a node is always connected to itself
         // TODO: Write your test here
+        uf = new QuickFindUF(5);
+        System.out.println("Test 3 (expect true): " + uf.connected(1,1));
 
         // Test 4: union is transitive — 0-1 and 1-2 means 0-2 connected
         // TODO: Write your test here
+        uf = new QuickFindUF(5);
+        uf.union(1,2);
+        uf.union(2,3);
+        System.out.println("Test 4 (expect true): " + uf.connected(1,3));
 
         // Test 5: union(p, q) where p and q are already connected — no change
         // TODO: Write your test here
+        uf = new QuickFindUF(5);
+        uf.union(1,2);
+        System.out.println("Test 5a (expect true): " + uf.connected(1,2));
+        uf.union(1,2);
+        System.out.println("Test 5b (expect true): " + uf.connected(1,2));
 
         // -------------------------------------------------------
         // FILE TESTS — read union commands from a file using Scanner
