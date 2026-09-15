@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class QuickFindUF {
 
     private int[] id;
@@ -87,7 +89,17 @@ public class QuickFindUF {
         // Run with: java QuickFindUF < tinyUF.txt
         // After processing all pairs, check: are nodes 0 and 7 connected? (expect true)
         // TODO: Read N from Scanner, build QuickFindUF, process all pairs, then print:
-        // System.out.println("Test 6 (expect true):  " + uf6.connected(0, 7));
+
+        String fname = "tinyUF.txt";
+        Scanner scanner = new Scanner(fname);
+        int N = scanner.nextInt();
+        QuickFindUF u = new QuickFindUF(N);
+        while(scanner.hasNext()) {
+            int p = scanner.nextInt();
+            int q = scanner.nextInt();
+            u.union(p,q);
+        }
+        System.out.println("Test 6 (expect true):  " + u.connected(0, 7));
 
         // Test 7 — mediumUF.txt (larger file)
         // Run with: java QuickFindUF < mediumUF.txt
