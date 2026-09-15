@@ -49,16 +49,18 @@ public class QuickFindUF {
         // Each test should print a label and the expected result
         // -------------------------------------------------------
 
-        // Test 2:
+        // Test 2: nodes not yet connected should return false
+        // TODO: Write your test here
+        uf = new QuickFindUF(5);
+        System.out.println("Test 2 (expect false): " + uf.connected(1,2));
+
+        // Test 3: a node is always connected to itself
         // TODO: Write your test here
 
-        // Test 3:
+        // Test 4: union is transitive — 0-1 and 1-2 means 0-2 connected
         // TODO: Write your test here
 
-        // Test 4:
-        // TODO: Write your test here
-
-        // Test 5:
+        // Test 5: union(p, q) where p and q are already connected — no change
         // TODO: Write your test here
 
         // -------------------------------------------------------
@@ -68,19 +70,6 @@ public class QuickFindUF {
         // File format (tinyUF.txt):
         //   Line 1:        N  (number of objects)
         //   Lines 2+:      p q  (pairs to union if not already connected)
-        //
-        // Use this pattern:
-        //   Scanner sc = new Scanner(System.in);
-        //   int N = sc.nextInt();
-        //   QuickFindUF uf = new QuickFindUF(N);
-        //   while (sc.hasNextInt()) {
-        //       int p = sc.nextInt();
-        //       int q = sc.nextInt();
-        //       if (!uf.connected(p, q)) {
-        //           uf.union(p, q);
-        //           System.out.println(p + " " + q);
-        //       }
-        //   }
         // -------------------------------------------------------
 
         // Test 6 — tinyUF.txt (10 objects, 11 pairs)
