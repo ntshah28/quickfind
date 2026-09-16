@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class QuickFindUF {
@@ -35,7 +37,7 @@ public class QuickFindUF {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         // -------------------------------------------------------
         // EXAMPLE TEST (provided) — do not modify
@@ -90,8 +92,8 @@ public class QuickFindUF {
         // After processing all pairs, check: are nodes 0 and 7 connected? (expect true)
         // TODO: Read N from Scanner, build QuickFindUF, process all pairs, then print:
 
-        String fname = "tinyUF.txt";
-        Scanner scanner = new Scanner(fname);
+        String fname = "src/tinyUF.txt";
+        Scanner scanner = new Scanner(new File(fname));
         int N = scanner.nextInt();
         QuickFindUF u = new QuickFindUF(N);
         while(scanner.hasNext()) {
@@ -106,5 +108,16 @@ public class QuickFindUF {
         // After processing all pairs, check: are nodes 0 and 1 connected? (expect true)
         // TODO: Read N from Scanner, build QuickFindUF, process all pairs, then print:
         // System.out.println("Test 7 (expect true):  " + uf7.connected(0, 1));
+        fname = "src/mediumUF.txt";
+        scanner = new Scanner(new File(fname));
+
+        N = scanner.nextInt();
+        QuickFindUF u2 = new QuickFindUF(N);
+        while(scanner.hasNext()) {
+            int p = scanner.nextInt();
+            int q = scanner.nextInt();
+            u2.union(p,q);
+        }
+        System.out.println("Test 7 (expect true):  " + u2.connected(0, 1));
     }
 }
